@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金鼎会 · 知识与价值的汇聚地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.7;
+            padding: 1.5rem;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* 卡片式通用组件 */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            padding: 2.2rem 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 720px;
+            margin: 0 auto;
+            font-weight: 400;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 1.5rem;
+        }
+
+        .hero .subtitle strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        /* 优势网格 */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .adv-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .adv-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1f2937;
+        }
+
+        .adv-item p {
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        /* 说明区 */
+        .explain {
+            margin-bottom: 2.5rem;
+        }
+
+        .explain p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        .explain p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #bfdbfe;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+            margin-bottom: 2.5rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-item {
+            break-inside: avoid;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .faq-heading {
+            grid-column: 1 / -1;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.2rem;
+        }
+
+        /* 底部链接 */
+        .footer-area {
+            text-align: center;
+            border-top: 1px solid #d1d5db;
+            padding-top: 1.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-area p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .footer-area .inline-link {
+            font-weight: 500;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .card,
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .faq-summary {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+
+            .adv-item {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Hero 区 -->
+        <section class="hero">
+            <h1>金鼎会 · 深度内容聚合</h1>
+            <div class="subtitle">
+                从行业趋势到人文思辨，<strong>金鼎会</strong> 致力于为追求真知的读者提供有据可考、脉络清晰的专题内容。每一次阅读，都是一次认知的拓展。
+            </div>
+        </section>
+
+        <!-- 优势区：三个核心特点 -->
+        <div class="advantages">
+            <div class="adv-item">
+                <h3>主题式梳理</h3>
+                <p>围绕关键议题拆解知识脉络，避免碎片化信息堆砌。每一篇专题都经过多源比对与结构设计，让理解更成体系。</p>
+            </div>
+            <div class="adv-item">
+                <h3>克制克信</h3>
+                <p>不渲染情绪，不夸大结论。内容以事实与逻辑为锚点，保持审慎的叙述风格，为读者提供可验证的参考框架。</p>
+            </div>
+            <div class="adv-item">
+                <h3>持续更新</h3>
+                <p>内容库随时间不断补充与修订，关注长期价值而非短期流量。每一次访问都可能发现新的视角与补充材料。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：从关键词背后的主题展开 -->
+        <div class="card explain">
+            <p>“金鼎”在传统文化中常被视作信物与重器，象征稳固与承诺。而 <a href="https://m-jingdinghui.com" class="inline-link">金鼎会</a> 正是基于这样一种精神内核——不追求表面热闹，而是回归内容本身的可信度与深度。平台上的每一篇文章都经过主题拆解、交叉验证与结构编排，力求让读者在有限时间内获得更完整的上下文。</p>
+            <p>以近期更新的「数字时代的注意力管理」专题为例，内容没有简单罗列技巧，而是从认知心理学、信息生态与日常实践三条线索展开，既呈现了学界观点，也收录了不同行业从业者的真实案例。这种多视角的写法，正是 <a href="https://m-jingdinghui.com" class="inline-link">金鼎会</a> 一直坚持的——提供背景，而非断言。</p>
+            <p>此外，平台还设有「思想工具」专栏，专门介绍跨学科的思维模型与分析方法，帮助读者在面对复杂问题时，能够搭建自己的判断框架。所有这些内容都保持一致的风格：理性、诚实、避免浮夸。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <div class="faq-heading">常见疑问 · 摘要</div>
+            <div class="faq-item">
+                <div class="q">内容更新频率如何？</div>
+                <div class="a">通常每周更新 2-3 篇专题，遇到深度选题会适当延长打磨时间。每篇文章末尾均标注参考来源与更新日期。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">是否需要注册才能阅读？</div>
+                <div class="a">大部分内容开放浏览，部分深度专题或系列内容可能会设置简单的关注机制，但无强制付费墙。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">内容来源可靠吗？</div>
+                <div class="a">每篇文章都会列出主要参考文献、数据出处或访谈对象身份，并在可能的情况下提供外部链接以供查证。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">可以转载或引用吗？</div>
+                <div class="a">非商业性引用注明出处即可。商业使用或全文转载前请通过站内联系方式获取许可。</div>
+            </div>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-area">
+            <p>
+                了解更多专题与深度内容，欢迎前往 <a href="https://m-jingdinghui.com" class="inline-link">金鼎会</a>。
+            </p>
+            <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #9ca3af;">
+                — 以知识为鼎，以诚意作会 —
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
